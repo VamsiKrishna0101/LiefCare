@@ -43,4 +43,25 @@ It allows managers to monitor staff attendance, track clock-in/clock-out times, 
 **Face Recognition:** face-api.js for browser-based recognition  
 
 
+## ⚙️ Installation & Setup
+
+# Clone repository
+https://github.com/VamsiKrishna0101/LiefCare.git
+cd LiefCare
+
+# Install backend dependencies
+cd Backend
+npm install
+
+# Install frontend dependencies
+cd ../Frontend
+npm install
+
+# Start backend
+npm run dev
+
+# Start frontend
+npm run dev
+
+Note: I have used My database please connect to your db
 
