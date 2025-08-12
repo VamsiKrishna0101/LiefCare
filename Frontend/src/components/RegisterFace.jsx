@@ -83,7 +83,7 @@ export default function RegisterFace() {
       // Send descriptor to backend
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:8000/api/face/register-face",
+        "https://liefcare.onrender.com/api/face/register-face",
         { descriptor: Array.from(detection.descriptor) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
