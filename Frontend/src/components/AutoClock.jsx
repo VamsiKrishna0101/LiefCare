@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import API from '../api/api'; // your axios instance or fetch wrapper
+import API from '../api/api'; 
 import { toast } from 'react-toastify';
 
 function getDistanceKm(lat1, lon1, lat2, lon2) {
@@ -16,12 +16,10 @@ function getDistanceKm(lat1, lon1, lat2, lon2) {
 
 export default function AutoClock() {
   const [status, setStatus] = useState('Waiting for location...');
-  const [perimeter, setPerimeter] = useState(null); // { center: {lat, lng}, radiusKm }
+  const [perimeter, setPerimeter] = useState(null); 
   const [position, setPosition] = useState(null);
-  const insidePerimeterRef = useRef(false); // track last known inside/outside state
-
+  const insidePerimeterRef = useRef(false); 
   useEffect(() => {
-    // Fetch perimeter location from backend on mount
     API.get('/worker/getlocation')
       .then(res => {
         setPerimeter(res.data);
@@ -32,12 +30,10 @@ export default function AutoClock() {
 
   useEffect(() => {
     if (!perimeter) return;
-
     const watchId = navigator.geolocation.watchPosition(
       pos => {
         const coords = { lat: pos.coords.latitude, lng: pos.coords.longitude };
         setPosition(coords);
-
         const dist = getDistanceKm(
           coords.lat,
           coords.lng,
@@ -48,20 +44,15 @@ export default function AutoClock() {
         if (dist <= perimeter.radiusKm) {
           setStatus('Inside perimeter');
           if (!insidePerimeterRef.current) {
-            // User just entered perimeter
             insidePerimeterRef.current = true;
             toast.info('You are inside perimeter, please clock in!');
-            // Optionally, auto clock-in here:
-            // autoClockIn(coords);
+            
           }
         } else {
           setStatus('Outside perimeter');
           if (insidePerimeterRef.current) {
-            // User just left perimeter
             insidePerimeterRef.current = false;
             toast.info('You left the perimeter, please clock out!');
-            // Optionally, auto clock-out here:
-            // autoClockOut(coords);
           }
         }
       },
@@ -74,7 +65,6 @@ export default function AutoClock() {
     return () => navigator.geolocation.clearWatch(watchId);
   }, [perimeter]);
 
-  // Optional: define autoClockIn and autoClockOut if you want to trigger API calls automatically
   
   const autoClockIn = async (coords) => {
     try {
