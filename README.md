@@ -17,7 +17,7 @@ It allows managers to monitor staff attendance, track clock-in/clock-out times, 
 - Managers set a **perimeter(lat, long)  radius** (e.g., 2 km) for shift logging.
 - Care workers can only clock in/out when within the allowed perimeter.If workers are inside the permiter a notification will pops up saying to clock-in in live when workers are outside notigication will pops to      clock-out
 - If outside the perimeter, the app notifies them as outside permiter and prevents logging if there is no shift(clock-in) app prevents to clock-out.
-- ![image_alt](https://github.com/VamsiKrishna0101/LiefCare/blob/db499912eb92ad4f621f5a0120ffb68279ef0b6e/work-1.png)
+- ![image_alt](https://github.com/VamsiKrishna0101/LiefCare/blob/db817429eeb21bc82ca58d423c8db05d7a483c62/wrk-2.png)
 
 - ### 3. **Face Recognition Shift Logging**
 - Care workers can clock in/out using ** face recognition**.
