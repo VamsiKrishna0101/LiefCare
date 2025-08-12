@@ -66,3 +66,7 @@ npm run dev
 
 Note: I have used My database please connect to your db
 
+Demo Video
+Here I didn't showed the face clocl-in clock-out but it works sir😅
+https://drive.google.com/file/d/1KQgnkJYQg9S-aECmhXGCPzdABCuejbth/view?usp=sharing
+
