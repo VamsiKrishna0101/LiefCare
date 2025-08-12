@@ -52,7 +52,7 @@ export default function FaceClockInOut({ type }) {
         alert(err.response?.data?.message || "Error during clock-in/out");
       } finally {
         setLoading(false);
-        setCameraActive(false); // Close camera after processing
+        setCameraActive(false);
       }
     });
   };
